@@ -19,7 +19,7 @@ Click **Deploy to Azure** button below to deploy IoT Central Application
 > [!TIP]  
 > Right click the button below and select **Open link in new tab** or **Open lin in new window**
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdaisukeiot%2FInnovateFPGA2021%2Fmain%2Fazuredeployiotc.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdaisukeiot%2FInnovateFPGA2021-Terasic%2Fmain%2Fdeploy%2Fazuredeployiotc.json%3Ftoken%3DAD2EKTZFWEQM3G22RSOAH4DBICY2S)
 
 ## 2. Provide parameters for IoT Central deployment
 
