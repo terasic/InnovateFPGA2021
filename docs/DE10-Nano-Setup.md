@@ -1,10 +1,10 @@
----
+<!---
 date : 9/1/2021
 author : Daisuke Nakahara <daisuken@microsoft.com>
 reviewer : Berry Tsai <betsai@microsoft.com>; Takehiro Hirai <takehiro.hirai@microsoft.com>
 Maintainer : 
 title : DE10-Nano setup instruction for Azure IoT Edge
----
+--->
 
 # Setting up DE10-Nano to run Azure IoT Edge
 
