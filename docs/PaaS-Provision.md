@@ -31,11 +31,11 @@ An [enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#enroll
 
 1. Provide enrollment information  
 
-    |Setting  |Description  |Example  |
-    |---------|---------|---------|
-    |Enrollment Name     | Name of new enrollment.  This name becomes Device ID in IoT Hub. | DE10-Nano      |
-    |Enrollment Type    | Enrollment can be individual or group.  Group enrollment is used when you are provisioning more than 1 devices to IoT solution.  Select individual.   | Individual.         |
-    |Capability     | If you are running Azure IoT Edge module, enable IoT Edge.  In this instruction, we will use Python App.         |         |
+|  | Setting         | Description                                                                                                                                         | Example     |
+|--|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+|  | Enrollment Name | Name of new enrollment.  This name becomes Device ID in IoT Hub.                                                                                    | DE10-Nano   |
+|  | Enrollment Type | Enrollment can be individual or group.  Group enrollment is used when you are provisioning more than 1 devices to IoT solution.  Select individual. | Individual. |
+|  | Capability      | If you are running Azure IoT Edge module, enable IoT Edge.  In this instruction, we will use Python App.                                            |             |
 
     ![DPS03](/images/DPS-03.png)
 
@@ -49,10 +49,10 @@ An [enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#enroll
 
 In order to provision your DE10-Nano through DPS, the device application requires following information.  
 
-| Information     | Description  | Example     |
-|-----------------|--------------|-------------|
-| Registration ID | Name of the enrollment.  By default, Registration ID is used as Device ID in IoT Hub. | DE10-Nano   |
-| ID Scope        | ID Scope is an identifier of your DPS instance.  With ID Scope, device application can communicate to your DPS instance.  | 0ne00123456 |
+| Information     | Description                                                                                                                                                                                                                                        | Example     |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| Registration ID | Name of the enrollment.  By default, Registration ID is used as Device ID in IoT Hub.                                                                                                                                                              | DE10-Nano   |
+| ID Scope        | ID Scope is an identifier of your DPS instance.  With ID Scope, device application can communicate to your DPS instance.                                                                                                                           | 0ne00123456 |
 | Symmetric Key   | DPS support 3 authentication method, or [Attestation Mechanisms](https://docs.microsoft.com/azure/iot-dps/concepts-service#attestation-mechanism).  1) Symmetric Key, 2) X.509, and 3) TPM.  This IoT solution is configured to use Symmetric Key. |             |
 
 You can pass these information through environment variables to Intel's reference device application.
@@ -61,12 +61,12 @@ Click `Copy` buttons for each item and set environment variables.
 
 Example :
 
-```bash
-export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
-export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037CE3D'
-export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
-export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
-```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+    export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037CE3D'
+    export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
+    export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
+    ```
 
 If you are provisioning DE10-Nano as Azure IoT Edge device, please follow this instruction to edit `/etc/aziot/config.toml` file.
 
@@ -78,9 +78,9 @@ Authenticate with symmetric keys : <https://docs.microsoft.com/azure/iot-edge/ho
 
 Execute main.py in DE10-Nano with :
 
-```bash
-python3.7 main.py
-```
+    ```bash
+    python3.7 main.py
+    ```
 
 Once your DE10-Nano is provisioned and connected, you should see device events such as device created and connected, as well as Telemetry from your DE10-Nano.
 
@@ -101,6 +101,5 @@ Congratulations.  You are now connect to IoT Hub and you can visualize device ev
 
 ## Next Step
 
-- Connecting IoT Edge module to sample IoT solution : TBD : reference to Kawai-san's documentation?
 - [Deep Dive on sample IoT solution](PaaS-DeepDive.md)
 - [Back to README](../README.md)

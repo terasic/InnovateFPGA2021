@@ -45,9 +45,9 @@ Click **Deploy to Azure** button below.  The button will take you to Azure Porta
 
 Each solution requires a few unique settings and parameters.  Please provide information to customize your solution.
 
-| Setting        | Description | Example|
-|----------------|-------------|--------|
-| Subscription   | Select your Azure subscription from the list.  If you do not have one, please sign up [free subscription](https://azure.microsoft.com/free/). | |
+| Setting        | Description                                                                                                                                                                                                                                           | Example                        |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| Subscription   | Select your Azure subscription from the list.  If you do not have one, please sign up [free subscription](https://azure.microsoft.com/free/).                                                                                                         |                                |
 | Resource Group | Resource group is a way to organize resources (services).  To learn more visit [here](/azure/azure-resource-manager/management/manage-resource-groups-portal).  Create new resource group by clicking `Create new`.                                   | MyInnovateFPGAGroup            |
 | Region         | Select nearest location.  To learn more, visit [here](https://azure.microsoft.com/global-infrastructure/geographies/#overview).                                                                                                                       | West US 2 for Pacific Timezone |
 | Unique ID      | Default names given to all resources are InnovateFPGA-&lt;ServiceName&gt;-&lt;Your Unique ID&gt;.  (E.g. InnovateFPGA-IoTHub-&lt;Unique Id&gt;)  Since some services require globally unique names so please make it unique, or accept random string. | YourName01                     |

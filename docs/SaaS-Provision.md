@@ -31,12 +31,12 @@ Your IoT Central application is pre-configured for DE10-Nano, using IoT Plug and
     Enter `Device name` and `Device ID` (they can be same), then select `FPGA Cloud Connectivity Kit` from the list for Device Template.  
     Click `Create` to create a new device for your DE10-Nano.
 
-    |Setting  |Description  |Example  |
-    |---------|---------|---------|
-    |Device Name     | End user friendly name appears in UI        | DE10-Nano         |
-    |Device ID     | Device Identity used for connection           | DE10-Nano         |
-    |Device Template     | Select FPGA Cloud Connectivity Kit         |         |
-    |Simlate this device?     | If you do not have a device, IoT Central can simulate device telemetry etc.  Select `No` since you are connecting real device.         |         |
+|  | Setting              | Description                                                                                                                    | Example   |
+|--|----------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------|
+|  | Device Name          | End user friendly name appears in UI                                                                                           | DE10-Nano |
+|  | Device ID            | Device Identity used for connection                                                                                            | DE10-Nano |
+|  | Device Template      | Select FPGA Cloud Connectivity Kit                                                                                             |           |
+|  | Simulate this device? | If you do not have a device, IoT Central can simulate device telemetry etc.  Select `No` since you are connecting real device. |           |
 
     ![IOTC02](/images/IoTC-02.png)
 
@@ -59,11 +59,11 @@ Your IoT Central application is pre-configured for DE10-Nano, using IoT Plug and
 
 In order to provision your DE10-Nano through DPS, the device application requires following information.
 
-| Information     | Description  | Example     |
-|-----------------|--------------|-------------|
-| ID Scope        | ID Scope is an identifier of your DPS instance.  With ID Scope, device application can communicate to your DPS instance.  | 0ne00123456 |
-| Device ID | Name of the enrollment.  By default, Registration ID is used as Device ID in IoT Hub. | DE10-Nano   |
-| Key   | Take either Primary Key or Secondary Key to provision your DE10-Nano. |             |
+| Information | Description                                                                                                              | Example     |
+|-------------|--------------------------------------------------------------------------------------------------------------------------|-------------|
+| ID Scope    | ID Scope is an identifier of your DPS instance.  With ID Scope, device application can communicate to your DPS instance. | 0ne00123456 |
+| Device ID   | Name of the enrollment.  By default, Registration ID is used as Device ID in IoT Hub.                                    | DE10-Nano   |
+| Key         | Take either Primary Key or Secondary Key to provision your DE10-Nano.                                                    |             |
 
 You can pass these information through environment variables to Intel's reference device application.
 
@@ -71,20 +71,20 @@ Click `Copy` buttons for each item and set environment variables.
 
 Example :
 
-```bash
-export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
-export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037C442'
-export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
-export IOTHUB_DEVICE_DPS_DEVICE_KEY='G4UpURCu2/SLATZmsq43cYQGEn48wNLGsYh4rZMWKwM='
-```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+    export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037C442'
+    export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
+    export IOTHUB_DEVICE_DPS_DEVICE_KEY='G4UpURCu2/SLATZmsq43cYQGEn48wNLGsYh4rZMWKwM='
+    ```
 
 ## 3. Run reference device application
 
 Execute main.py in DE10-Nano with :
 
-```bash
-python3.7 main.py
-```
+    ```bash
+    python3.7 main.py
+    ```
 
 Once your DE10-Nano is provisioned and connected, you should see device status change to `Provisioned` status.  You can also see telemetry from your DE10-Nano.
 
@@ -100,5 +100,4 @@ Congratulations.  You are now connect to IoT Hub and you can visualize device ev
 
 ## Next Step
 
-- Connecting IoT Edge module to sample IoT solution : TBD : reference to Kawai-san's documentation?
 - [Back to README](../README.md)

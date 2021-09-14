@@ -26,10 +26,10 @@ Both Azure Free Account and Azure for Students provides :
 
 Difference are followings:
 
-| Subscription Type  | Azure Credit and spending limits                           | Note                                                                                          |
-|--------------------|------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| Azure Free Account | $200, must be used within 30 days after account sign up.   | Within 30 days of sign-up or upon exhaustion of the Credits (whichever occurs first), you must upgrade to a Pay-As-You-Go subscription by removing the Spending Limit.                                                                                                |
-| Azure for Students | #100, must be used within 12 months after account sign up. | Additional benefits such as software download benefits for education, non-commercial purpose. |
+| Subscription Type  | Azure Credit and spending limits                           | Note                                                                                                                                                                   |
+|--------------------|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Free Account | $200, must be used within 30 days after account sign up.   | Within 30 days of sign-up or upon exhaustion of the Credits (whichever occurs first), you must upgrade to a Pay-As-You-Go subscription by removing the Spending Limit. |
+| Azure for Students | #100, must be used within 12 months after account sign up. | Additional benefits such as software download benefits for education, non-commercial purpose.                                                                          |
 
 > [!IMPORTANT]  
 > Make sure you sign up for Azure Free Account or Azure for Students when you are ready.  Your 30 day spending limit timer will start when you sign up.

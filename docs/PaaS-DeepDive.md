@@ -288,7 +288,7 @@ For example, if you connect GPS to DE10-Nano and send location data to track mov
 
 ## Actions
 
-The sample solution does not take any actions.  The action it performs is re-formatting telemetry into SignalR message and send SignalR messages to SinglR service.  Depending on your use cases, you may want to add actions based on data and events from your DE10-Nano application.  For example, you can add sending SMS or email when AI model running in DE10-Nano found an animal. Or send warning message to Web UI when sensor data monitoring ocean temperature goes above or below threshold.
+The sample solution does not take any actions.  The action it performs is re-formatting telemetry into SignalR message and send SignalR messages to SignalR service.  Depending on your use cases, you may want to add actions based on data and events from your DE10-Nano application.  For example, you can add sending SMS or email when AI model running in DE10-Nano found an animal. Or send warning message to Web UI when sensor data monitoring ocean temperature goes above or below threshold.
 
 ## Next Step
 
