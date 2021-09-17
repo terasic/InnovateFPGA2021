@@ -11,11 +11,81 @@ title : Azure IoT Sample Solution provisioning DE10-nano
 In order to connect your DE10-Nano to Azure IoT Hub, you must provision your DE10-Nano.  Provisioning is done through Device Provisioning Service (DPS).
 Once your DE10-Nano is provisioned, it can connect to IoT Hub.  Steps involved in connecting DE10-Nano are :
 
+1. Flash SD Card with Ubuntu 18 image
+1. Boot DE10-Nano
+1. Connect DE10-Nano over UART or SSH
+1. Clone Reference Application
+1. Set up DE10-Nano for Python application
 1. Create DPS Enrollment for DE10-Nano
 1. Configure your DE10-Nano with DPS provisioning information
 1. Run reference device application
 
-## 1. Create DPS Enrollment
+Reference device application provides 2 versions of runtime.
+
+- Python application
+- Azure IoT Edge module (written in Python)
+
+This document describes how to run Python application to provision to the sample IoT solution.
+
+## 1. Flash SD Card with Ubuntu 18 Image
+
+Download Ubuntu 18 disk image from <http://xxxx.com>
+
+> [!NOTE]
+> TBD Add link when image is available
+
+## 2. Assemble DE10-Nano
+
+Assemble DE10-Nano and connect cables.
+
+- Ethernet cable for Internet connection
+- Mini-USB to Type-A USB Cable for Serial Console
+- HDMI cable (Optional)
+
+![DE10-Nano](/images/DE10-Nano-Cabling.png)
+
+## 3. Connect Serial Terminal
+
+- Connect Mini-USB cable to your PC.  
+- Install Serial Terminal such as Putty or Teraterm on your PC.
+- Configure Serial Port with :
+
+    | Setting      | Value              |
+    |--------------|--------------------|
+    | Port         | Serial Port Number |
+    | Baud rate    | 115200             |
+    | Data         | 8 bit              |
+    | Parity       | None               |
+    | Stop Bit     | 1 bit              |
+    | Flow Control | None               |
+
+If you do not have Mini-USB cable, use SSH to connect to DE10-Nano.
+
+> [!TIP]  
+> DE10-Nano does not have hardware MAC address.  As a result,
+> IP Address may change on every boot.  You may configure DE10-Nano with
+> static IP.
+
+## 4. Clone reference application
+
+Clone reference application with : 
+
+```bash
+git clone https://github.com/intel-iot-devkit/terasic-de10-nano-kit.git
+```
+
+## 5. Set up DE10-Nano for Python application
+
+Install Python 3.7 (or above) and libraries with :
+
+```bash
+cd ~/terasic-de10-nano-kit/<TBD Path> && \
+apt update && \
+apt install -y python3-pip && \
+python3.7 -m pip3 install -r ../requirements.txt
+```
+
+## 6. Create DPS Enrollment
 
 An [enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment) is a way to register your DE10-Nano to your IoT solution.  With DPS, your DE10-Nano can auto-provision to IoT Hub.
 
@@ -45,7 +115,7 @@ An [enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#enroll
   
     ![DPS04](/images/DPS-04.png)
 
-## 2. Configure your DE10-Nano with DPS provisioning information
+## 7. Configure your DE10-Nano with DPS provisioning information
 
 In order to provision your DE10-Nano through DPS, the device application requires following information.  
 
@@ -68,11 +138,27 @@ Example :
     export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
     ```
 
-If you are provisioning DE10-Nano as Azure IoT Edge device, please follow this instruction to edit `/etc/aziot/config.toml` file.
+Configure FPGA by copying `.dtbo` and `.rbf` files to `/lib/firmware` folder
 
-<https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11>
+Example :
 
-Authenticate with symmetric keys : <https://docs.microsoft.com/azure/iot-edge/how-to-auto-provision-symmetric-keys?view=iotedge-2020-11&tabs=linux#configure-the-device-with-provisioning-information>
+```bash
+overlay_dir="/sys/kernel/config/device-tree/overlays/socfpga"
+overlay_dtbo="rfs-overlay.dtbo"
+overlay_rbf="Module5_Sample_HW.rbf"
+
+if [ -d $overlay_dir ];then
+  rmdir $overlay_dir
+fi
+
+cp $overlay_dtbo /lib/firmware/
+cp $overlay_rbf /lib/firmware/
+
+mkdir $overlay_dir
+```
+
+> [!TIP]  
+> If you are interested in running Azure IoT Edge, follow [this](DE10-Nano-IoTEdge.md) instruction
 
 ## 3. Run reference device application
 
