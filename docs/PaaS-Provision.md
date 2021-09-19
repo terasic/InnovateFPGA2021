@@ -68,7 +68,7 @@ If you do not have Mini-USB cable, use SSH to connect to DE10-Nano.
 
 ## 4. Clone reference application
 
-Clone reference application with : 
+Clone reference application with :
 
 ```bash
 git clone https://github.com/intel-iot-devkit/terasic-de10-nano-kit.git
@@ -81,8 +81,8 @@ Install Python 3.7 (or above) and libraries with :
 ```bash
 cd ~/terasic-de10-nano-kit/<TBD Path> && \
 apt update && \
-apt install -y python3-pip && \
-python3.7 -m pip3 install -r ../requirements.txt
+apt install -y python3.7 python3-pip && \
+python3.7 -m pip install -r ../requirements.txt
 ```
 
 ## 6. Create DPS Enrollment
@@ -131,12 +131,12 @@ Click `Copy` buttons for each item and set environment variables.
 
 Example :
 
-    ```bash
-    export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
-    export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037CE3D'
-    export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
-    export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
-    ```
+```bash
+export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037CE3D'
+export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
+export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
+```
 
 Configure FPGA by copying `.dtbo` and `.rbf` files to `/lib/firmware` folder
 
@@ -164,9 +164,9 @@ mkdir $overlay_dir
 
 Execute main.py in DE10-Nano with :
 
-    ```bash
-    python3.7 main.py
-    ```
+```bash
+python3.7 main.py
+```
 
 Once your DE10-Nano is provisioned and connected, you should see device events such as device created and connected, as well as Telemetry from your DE10-Nano.
 
