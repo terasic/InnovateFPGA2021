@@ -16,10 +16,13 @@ Each instance of IoT Central deployment is called `IoT Central Application`.  Fo
 
 Click **Deploy to Azure** button below to deploy IoT Central Application
 
-> [!TIP]  
-> Right click the button below and select **Open link in new tab** or **Open lin in new window**
+> [!NOTE]  
+> TBD Update link to ARM template after converting the repo to public.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdaisukeiot%2FInnovateFPGA2021%2Fmain%2Fazuredeployiotc.json)
+
+> [!TIP]  
+> Right click the button below and select **Open link in new tab** or **Open lin in new window**
 
 ## 2. Provide parameters for IoT Central deployment
 

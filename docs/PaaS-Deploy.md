@@ -31,6 +31,9 @@ With this sample solution, you can perform basic IoT operations:
 
 ## 1. Start deploying Azure IoT Services
 
+> [!NOTE]  
+> TBD Update link to ARM template after converting the repo to public.
+
 Click **Deploy to Azure** button below.  The button will take you to Azure Portal and loads [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
 > [!TIP]  
