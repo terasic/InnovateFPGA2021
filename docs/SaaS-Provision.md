@@ -31,12 +31,12 @@ Your IoT Central application is pre-configured for DE10-Nano, using IoT Plug and
     Enter `Device name` and `Device ID` (they can be same), then select `FPGA Cloud Connectivity Kit` from the list for Device Template.  
     Click `Create` to create a new device for your DE10-Nano.
 
-|  | Setting              | Description                                                                                                                    | Example   |
-|--|----------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------|
-|  | Device Name          | End user friendly name appears in UI                                                                                           | DE10-Nano |
-|  | Device ID            | Device Identity used for connection                                                                                            | DE10-Nano |
-|  | Device Template      | Select FPGA Cloud Connectivity Kit                                                                                             |           |
-|  | Simulate this device? | If you do not have a device, IoT Central can simulate device telemetry etc.  Select `No` since you are connecting real device. |           |
+    | Setting              | Description | Example   |
+    |----------------------|-------------|-----------|
+    | Device Name          | End user friendly name appears in UI | DE10-Nano |
+    | Device ID            | Device Identity used for connection  | DE10-Nano |
+    | Device Template      | Select FPGA Cloud Connectivity Kit   |           |
+    | Simulate this device? | If you do not have a device, IoT Central can simulate device telemetry etc.  Select `No` since you are connecting real device. ||
 
     ![IOTC02](/images/IoTC-02.png)
 
