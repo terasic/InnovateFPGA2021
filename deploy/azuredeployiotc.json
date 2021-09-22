@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "IotCentralApplicationName": {
+      "defaultValue": "InnovateFPGA-IOTC",
+      "minLength": 5,
+      "maxLength": 32,
+      "type": "String",
+      "metadata": {
+        "description": "IoT Central Application Name.  The name must be globally unique up to 32 characters"
+      }
+    },
+    "IotCentralLocation": {
+      "defaultValue": "unitedstates",
+      "allowedValues": [
+        "asiapacific",
+        "australia",
+        "europe",
+        "japan",
+        "uk",
+        "unitedstates"
+      ],
+      "type": "String",
+      "metadata": {
+        "description": "True to install IoT Central (vs. IoT Hub)"
+      }
+    }
+  },
+  "variables": {
+    "iotcentral": {
+      "apiVersion": "2021-01-01-preview",
+      "sku": "ST1",
+      "displayName": "[parameters('IotCentralApplicationName')]",
+      "subdomain": "[toLower(parameters('IotCentralApplicationName'))]",
+      "templateId": "4b3ce2a3-b9e3-4509-a687-0ab524e552c0"
+    },
+    "envTag": "v0.1"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.IoTCentral/IoTApps",
+      "name": "[variables('iotcentral').subdomain]",
+      "apiVersion": "2018-09-01",
+      "location": "[parameters('IotCentralLocation')]",
+      "tags": {
+        "ENV": "[variables('envTag')]"
+      },
+      "sku": {
+        "name": "[variables('iotcentral').sku]"
+      },
+      "properties": {
+        "displayName": "[parameters('IotCentralApplicationName')]",
+        "subdomain": "[variables('iotcentral').subdomain]",
+        "template": "[variables('iotcentral').templateId]"
+      }
+    }
+  ],
+  "outputs": {
+    "_Web_Site_Address": {
+      "type": "String",
+      "value": "[concat('https://', variables('iotcentral').subdomain, '.azureiotcentral.com')]"
+    }
+  }
+}
