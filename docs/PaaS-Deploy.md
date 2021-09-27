@@ -89,6 +89,11 @@ Once the deployment is completed, navigate to the sample Web Application to conf
 >
 > ![PaaS08](/images/PaaS-08.png)
 
+## Completed
+
+Congratulations!  You deployed a sample IoT solution in your Azure subscription.  You can connect DE10-Nano to the solution to start seeing data!
+Let's set up and connect DE10-Nano!
+
 ## Next Step
 
 - [Provision DE10-Nano](PaaS-Provision.md) to your IoT Solution to interact with DE10-Nano.  
