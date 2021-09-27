@@ -4,10 +4,10 @@
   "parameters": {
     "UniqueID": {
       "minLength": 5,
-      "maxLength": 12,
+      "maxLength": 14,
       "type": "String",
       "metadata": {
-        "description": "Unique ID.  E.g. your name.  Must be Alphanumeric (a~z, 0~9), and 5~12 characters"
+        "description": "Unique ID.  E.g. your name.  Must be Alphanumeric (a~z, 0~9), and 5~14 characters"
       }
     },
     "IotHubSku": {
@@ -80,7 +80,7 @@
     "storage": {
       "apiVersion": "2021-02-01",
       "sku": "Standard_LRS",
-      "name": "[toLower(concat('innovatefpgastor', parameters('UniqueID')))]"
+      "name": "[toLower(concat('ifpgastor', parameters('UniqueID')))]"
     },
     "githubrepo": {
       "webApp": "https://github.com/daisukeiot/InnovateFPGA2021-WebApp.git",
