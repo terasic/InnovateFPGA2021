@@ -39,7 +39,7 @@ More information on Deployment Manifest : <https://docs.microsoft.com/en-us/azur
 ## Completed
 
 Congratulations!  You just deployed Reference Application as IoT Edge module to your DE10-Nano.
-Now you can customize device appliacation to receive data for your use cases.
+Now you can customize device application to receive data for your use cases.
 
 ## Next Steps
 

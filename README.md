@@ -44,7 +44,6 @@ Microsoft provides Platform as a Service (PaaS) as well as Software as a Service
 - [Deploy SaaS solution](docs/SaaS-Deploy.md) : Azure IoT Central pre-configured application
   - [Provision DE10-Nano](docs/SaaS-Provision.md) to your IoT Central Application
 
-
 ## Resources
 
 - InnovateFPGA 2021 Homepage : <https://innovatefpga.com>

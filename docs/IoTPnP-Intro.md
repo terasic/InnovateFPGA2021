@@ -27,11 +27,11 @@ In order for a device to act as IoT Plug and Play, followings are required :
 
 - Device Code to adhere IoT Plug and Play convention  
 
-    IoT Plug and Play convention defines how IoT device code and IoT solution application interact.  Data must be sent in an agreed format.  Please refer to [online document ](https://docs.microsoft.com/azure/iot-develop/concepts-convention)for more details.
+    IoT Plug and Play convention defines how IoT device code and IoT solution application interact.  Data must be sent in an agreed format.  Please refer to [online document](https://docs.microsoft.com/azure/iot-develop/concepts-convention)for more details.
 
 ## Reference Application
 
-Reference Application uses componentized structure.
+Reference Application uses component schema.
 
 ```json
 
