@@ -33,9 +33,9 @@
       "sku": "ST1",
       "displayName": "[parameters('IotCentralApplicationName')]",
       "subdomain": "[toLower(parameters('IotCentralApplicationName'))]",
-      "templateId": "4b3ce2a3-b9e3-4509-a687-0ab524e552c0"
+      "templateId": "f4cece75-c5d3-458b-9924-d63d942386c7"
     },
-    "envTag": "v0.1"
+    "envTag": "v0.9"
   },
   "resources": [
     {

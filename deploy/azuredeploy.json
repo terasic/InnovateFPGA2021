@@ -91,7 +91,7 @@
     "deployment": {
       "apiVersion": "2021-04-01"
     },
-    "envTag": "v0.1"
+    "envTag": "v0.9"
   },
   "resources": [
     {
