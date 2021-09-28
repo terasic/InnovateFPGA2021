@@ -83,9 +83,9 @@
       "name": "[toLower(concat('ifpgastor', parameters('UniqueID')))]"
     },
     "githubrepo": {
-      "webApp": "https://github.com/daisukeiot/InnovateFPGA2021-WebApp.git",
+      "webApp": "https://github.com/microsoft/InnovateFPGA2021-WebApp.git",
       "webAppBranch": "main",
-      "functions": "https://github.com/daisukeiot/InnovateFPGA2021-Functions.git",
+      "functions": "https://github.com/microsoft/InnovateFPGA2021-Functions.git",
       "functionsBranch": "main"
     },
     "deployment": {
