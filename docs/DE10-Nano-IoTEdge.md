@@ -27,7 +27,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
-Install Moby container engine using package manager with : 
+Install Moby container engine using package manager with :
 
 ```bash
 sudo apt-get update && \
@@ -39,13 +39,20 @@ sudo apt-get install moby-engine
 Once container engine is installed and running, install Azure IoT Edge Runtime with :
 
 ```bash
-sudo apt-get update && \
-apt list -a aziot-edge aziot-identity-service && \
-sudo apt-get install aziot-edge
+curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.4/aziot-identity-service_1.2.3-1_ubuntu18.04_armhf.deb -o aziot-identity-service.deb && \
+sudo apt-get install -y ./aziot-identity-service.deb && \
+curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.4/aziot-edge_1.2.4-1_ubuntu18.04_armhf.deb -o aziot-edge.deb && \
+sudo apt-get install -y ./aziot-edge.deb
 ```
 
 > [!IMPORTANT]  
-> The reference application requires Azure IoT Edge Runtime version 1.2 or above.
+> The reference application requires Azure IoT Edge Runtime version 1.2.4 or above.
+> Check the version of Azure IoT Edge Runtime with :
+>
+> ```bash
+> root@de10nano:~# iotedge version
+> iotedge 1.2.4
+> ```
 
 ## Create DPS enrollment
 
