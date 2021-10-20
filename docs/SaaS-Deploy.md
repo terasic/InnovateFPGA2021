@@ -19,14 +19,14 @@ Click **Deploy to Azure** button below to deploy IoT Central Application
 > [!NOTE]  
 > TBD Update link to ARM template after converting the repo to public.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdaisukeiot%2FInnovateFPGA2021%2Fmain%2Fazuredeployiotc.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fterasic%2FInnovateFPGA2021%2Fmain%2Fdeploy%2Fazuredeployiotc.json)
 
 > [!TIP]  
 > Right click the button below and select **Open link in new tab** or **Open lin in new window**
 
 ## 2. Provide parameters for IoT Central deployment
 
-![SaaS01](/images/SaaS-01.png)
+![SaaS01](../images/SaaS-01.png)
 
 | Setting                     | Description                                                                                                                                                                                                                                                                            | Example                        |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
@@ -43,22 +43,22 @@ Click **Deploy to Azure** button below to deploy IoT Central Application
 
 Click `Review + create` button for Azure Portal to validate the settings.  Start deployment by clicking `Create` button.
 
-![SaaS02](/images/SaaS-02.png)
+![SaaS02](../images/SaaS-02.png)
 
 ## 4. Confirm successful IoT Central deployment
 
 Deployment should finish in 1 minute or so.  Please wait for the deployment to complete.
 Once the deployment is completed, navigate to the sample Web Application to confirm your solution instance is up and running.
 
-![SaaS03](/images/SaaS-03.png)
+![SaaS03](../images/SaaS-03.png)
 
 1. Click `Outputs` in the left pane, then copy Web app's URL by clicking the blue button on the right.
 
-    ![PaaS04](/images/SaaS-04.png)
+    ![PaaS04](../images/SaaS-04.png)
 
 1. Open a new browser tab to access your new IoT Central application
 
-    ![SaaS05](/images/SaaS-05.png)
+    ![SaaS05](../images/SaaS-05.png)
 
 > [!TIP]  
 > You can navigate to your IoT Central application from <https://azureiotcentral.com>

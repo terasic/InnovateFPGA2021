@@ -20,7 +20,7 @@ Once your DE10-Nano is provisioned, it can connect to IoT Hub.  Steps involved i
 1. Configure your DE10-Nano with DPS provisioning information
 1. Run reference device application
 
-Reference device application provides 2 versions of runtime.
+Reference device application provides two versions of runtime.
 
 - Python application
 - Azure IoT Edge module (written in Python)
@@ -29,10 +29,20 @@ This document describes how to run Python application to provision to the sample
 
 ## 1. Flash SD Card with Ubuntu 18 Image
 
-Download Ubuntu 18 disk image from <http://xxxx.com>
+1. Download **Ubuntu 18.04 disk image** from Terasic
 
-> [!NOTE]
-> TBD Add link when image is available
+   <https://download.terasic.com/downloads/cd-rom/de10-nano/AzureImage/DE10-Nano-Cloud-Native_18.04.zip>
+
+1. Flash SD card using Disk Image application such as [balenaEtcher](https://www.balena.io/etcher/) or [Rufus](https://rufus.ie/)
+
+> [!NOTE]  
+> The SD Card image contains following additional components :
+>  
+> - Python3.7
+> - Moby container engine
+> - Azure IoT Edge Runtime
+>
+> If you would like to start from clean OS, please refer documentation at <TBD: Intel Doc Link>
 
 ## 2. Assemble DE10-Nano
 
@@ -42,7 +52,7 @@ Assemble DE10-Nano and connect cables.
 - Mini-USB to Type-A USB Cable for Serial Console
 - HDMI cable (Optional)
 
-![DE10-Nano](/images/DE10-Nano-Cabling.png)
+![DE10-Nano](../images/DE10-Nano-Cabling.png)
 
 ## 3. Connect Serial Terminal
 
@@ -54,68 +64,165 @@ Assemble DE10-Nano and connect cables.
     |--------------|--------------------|
     | Port         | Serial Port Number |
     | Baud rate    | 115200             |
-    | Data         | 8 bit              |
+    | Data         | 8 bits             |
     | Parity       | None               |
     | Stop Bit     | 1 bit              |
     | Flow Control | None               |
 
-If you do not have Mini-USB cable, use SSH to connect to DE10-Nano.
+If you do not have Mini-USB cable, use SSH or local console (requires HDMI monitor and USB Keyboard) to connect to DE10-Nano.
+
+## 4. Initialize DE10-Nano
+
+Boot DE10-Nano with Ubuntu 18.04 image.  
 
 > [!TIP]  
-> DE10-Nano does not have hardware MAC address.  As a result,
-> IP Address may change on every boot.  You may configure DE10-Nano with
-> static IP.
+> The default user name and password for DE10-Nano are:
+>
+> - User Name : root
+> - Password  : de10nano
 
-## 4. Clone reference application
+After the initial boot, it is recommended to :
+
+1. Change password for root with :
+
+    ```bash
+    passwd
+    ```
+
+    Then enter new password when prompted.
+
+1. Update package catalog with :
+
+    ```bash
+    apt update
+    ```
+
+1. Expand file system so you do not run out of disk space.
+
+    1. Expand rootfs with :
+
+        ```bash
+        ./expand_rootfs.sh
+        ```
+
+    1. Reboot DE10-Nano when prompted with :
+
+        ```bash
+        reboot now
+        ```
+
+    1. After reboot, complete the process with :
+
+        ```bash
+        ./resize2fs_once
+        ```
+
+1. Set Static IP
+
+    DE10-Nano does not have hardware MAC address.  As a result, IP Address may change on every boot.  You may configure DE10-Nano with static IP.
+
+    [Instruction](DE10-Nano-Setup.md#option-static-ip)
+
+1. Install your favorite tools such as text editor
+
+## 5. Clone reference application
 
 Clone reference application with :
 
 ```bash
+cd ~ && \
+apt update && \
 git clone https://github.com/intel-iot-devkit/terasic-de10-nano-kit.git
 ```
 
-## 5. Set up DE10-Nano for Python application
+## 6. Set up DE10-Nano for Python application
 
-Install Python 3.7 (or above) and libraries with :
+Install Python libraries for the reference application with :
 
 ```bash
-cd ~/terasic-de10-nano-kit/<TBD Path> && \
-apt update && \
-apt install -y python3.7 python3-pip && \
-python3.7 -m pip install -r ../requirements.txt
+cd ~/terasic-de10-nano-kit/azure-de10nano-document/sensor-aggregation-reference-design-for-azure/sw/software-code/modules/RfsModule && \
+python3.7 -m pip install -r ./requirements.txt
 ```
 
-## 6. Create DPS Enrollment
+> [!TIP]  
+> The path may be too long to fit to the default console.  You can increase console size with `stty` command.
+> For example, changing console to 200x120 :
+>
+> ```bash
+> stty columns 200 rows 120
+> ```
 
-An [enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment) is a way to register your DE10-Nano to your IoT solution.  With DPS, your DE10-Nano can auto-provision to IoT Hub.
+## 7. Create DPS Enrollment
+
+An [enrollment](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment) is a way to register your DE10-Nano to your IoT solution.  With Azure Device Provisioning Service (DPS), your DE10-Nano can auto-provision to Azure IoT Hub.
 
 1. Navigate to your InnovateFPGA Azure Demo web site
 1. Click `Device Management` menu in the navigation bar  
 1. Click `Device Provisioning (DPS)`
 
-    ![DPS01](/images/DPS-01.png)
+    ![DPS01](../images/DPS-01.png)
 
 1. Click `Add New Enrollment` to expand menu
 
-    ![DPS02](/images/DPS-02.png)
+    ![DPS02](../images/DPS-02.png)
 
 1. Provide enrollment information  
 
-|  | Setting         | Description                                                                                                                                         | Example     |
-|--|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-|  | Enrollment Name | Name of new enrollment.  This name becomes Device ID in IoT Hub.                                                                                    | DE10-Nano   |
-|  | Enrollment Type | Enrollment can be individual or group.  Group enrollment is used when you are provisioning more than 1 devices to IoT solution.  Select individual. | Individual. |
-|  | Capability      | If you are running Azure IoT Edge module, enable IoT Edge.  In this instruction, we will use Python App.                                            |             |
+    | Setting         | Description                                                                                                                                         | Example               |
+    |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+    | Enrollment Name | Name of new enrollment.  This name becomes Device ID in IoT Hub.                                                                                    | DE10-Nano             |
+    | Enrollment Type | Enrollment can be individual or group.  Group enrollment is used when you are provisioning more than 1 devices to IoT solution.  Select individual. | Individual.           |
+    | Capability      | If you are running Azure IoT Edge module, enable IoT Edge.  In this instruction, we will use Python App.                                            | IoT Edge **NOT** selected |
 
-    ![DPS03](/images/DPS-03.png)
+  ![DPS03](../images/DPS-03.png)
 
 1. Click `Create` to create a new individual enrollment
 
     You should see a new enrollment in the list box above.
   
-    ![DPS04](/images/DPS-04.png)
+    ![DPS04](../images/DPS-04.png)
 
-## 7. Configure your DE10-Nano with DPS provisioning information
+  > [!TIP]  
+  > If you are interested in running Azure IoT Edge, follow [this](DE10-Nano-IoTEdge.md) instruction
+
+## 8. Disable overlay during boot
+
+Disable FPGA overlay during boot by commenting out following lines in `/overlay/fpgaoverlay.sh`
+
+```bash
+echo "creating $overlay_dir"
+mkdir $overlay_dir
+
+echo "Doing Device Tree Overlay"
+echo overlay.dtbo > $overlay_dir/path
+
+echo "Successfully Device Tree Overlay Done"
+
+echo "Loading altvipfb"
+modprobe altvipfb
+echo "Successfully altvipfb is loaded"
+```
+
+to
+
+```bash
+#echo "creating $overlay_dir"
+#mkdir $overlay_dir
+
+#echo "Doing Device Tree Overlay"
+#echo overlay.dtbo > $overlay_dir/path
+
+#echo "Successfully Device Tree Overlay Done"
+
+#echo "Loading altvipfb"
+#modprobe altvipfb
+#echo "Successfully altvipfb is loaded"
+```
+
+## 9. Configure your DE10-Nano with DPS provisioning information
+
+> [!WARNING]  
+> TBD : This section needs update based on how we want user to run app.
 
 In order to provision your DE10-Nano through DPS, the device application requires following information.  
 
@@ -127,50 +234,64 @@ In order to provision your DE10-Nano through DPS, the device application require
 
 You can pass these information through environment variables to Intel's reference device application.
 
-Click `Copy` buttons for each item and set environment variables.
+1. Open `run.sh` file with your favorite text editor
 
-Example :
+    E.g., with Nano
 
-```bash
-export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
-export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037CE3D'
-export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
-export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
-```
+    ```bash
+    nano ./overlay/run.sh
+    ```
 
-Configure FPGA by copying `.dtbo` and `.rbf` files to `/lib/firmware` folder
+1. Add following lines to the beginning of `run.sh`
 
-Example :
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+    export IOTHUB_DEVICE_DPS_ID_SCOPE=''
+    export IOTHUB_DEVICE_DPS_DEVICE_ID=''
+    export IOTHUB_DEVICE_DPS_DEVICE_KEY=''
+    ```
 
-```bash
-overlay_dir="/sys/kernel/config/device-tree/overlays/socfpga"
-overlay_dtbo="rfs-overlay.dtbo"
-overlay_rbf="Module5_Sample_HW.rbf"
+1. Click `Copy` buttons for each item and paste to `run.sh`
 
-if [ -d $overlay_dir ];then
-  rmdir $overlay_dir
-fi
+    Example :
 
-cp $overlay_dtbo /lib/firmware/
-cp $overlay_rbf /lib/firmware/
-
-mkdir $overlay_dir
-```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
+    export IOTHUB_DEVICE_DPS_ID_SCOPE='0ne0037CE3D'
+    export IOTHUB_DEVICE_DPS_DEVICE_ID='DE10-Nano'
+    export IOTHUB_DEVICE_DPS_DEVICE_KEY='L2MD3xTyzPTJsdxw8/BAd+0ylYmT3QblLfgzlooriLjMN6UcFXQ8KPw/zTACdQhNE/uxWmHFzixcsDhhX5A2KdfdafdQ=='
+    ```
 
 > [!TIP]  
-> If you are interested in running Azure IoT Edge, follow [this](DE10-Nano-IoTEdge.md) instruction
+> If you would like to use your own `.dtbo` and `.rbf` files, copy them to `/lib/firmware` folder, and update following lines
+>
+> ```bash
+> overlay_dir="/sys/kernel/config/device-tree/overlays/socfpga"
+> overlay_dtbo="rfs-overlay.dtbo"
+> overlay_rbf="Module5_Sample_HW.rbf"
+>
+> if [ -d $overlay_dir ];then
+>   rmdir $overlay_dir
+> fi
+> 
+> cp $overlay_dtbo /lib/firmware/
+> cp $overlay_rbf /lib/firmware/
+> 
+> mkdir $overlay_dir
+> ```
 
-## 3. Run reference device application
+## 10. Run reference device application
 
-Execute main.py in DE10-Nano with :
+Execute main.py in DE10-Nano by running `run.sh` script with :
 
 ```bash
-python3.7 main.py
+cd overlay && \
+./run.sh
 ```
 
 Once your DE10-Nano is provisioned and connected, you should see device events such as device created and connected, as well as Telemetry from your DE10-Nano.
 
-![DPS05](/images/DPS-05.png)
+![DPS05](../images/DPS-05.png)
 
 > [!TIP]  
 > You can see details of events and telemetry by clicking the blue button on the left of each row.
@@ -183,9 +304,11 @@ Learn more about Device Events from IoT Hub : <https://docs.microsoft.com/en-us/
 
 ## Completed
 
-Congratulations.  You are now connect to IoT Hub and you can visualize device events from IoT Hub and telemetry from your DE10-Nano.
+Congratulations!  You are now connected to IoT Hub.  You can visualize device events from IoT Hub and telemetry from your DE10-Nano.
 
 ## Next Step
 
+- [Add IoT Plug and Play interfaces](./IoTPnP-Intro.md)
+- [Configure DE10-Nano as Azure IoT Edge Device](DE10-Nano-IoTEdge.md)
 - [Deep Dive on sample IoT solution](PaaS-DeepDive.md)
 - [Back to README](../README.md)
