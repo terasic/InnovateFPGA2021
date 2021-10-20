@@ -4,10 +4,10 @@
   "parameters": {
     "UniqueID": {
       "minLength": 5,
-      "maxLength": 12,
+      "maxLength": 14,
       "type": "String",
       "metadata": {
-        "description": "Unique ID.  E.g. your name.  Must be Alphanumeric (a~z, 0~9), and 5~12 characters"
+        "description": "Unique ID.  E.g. your name.  Must be Alphanumeric (a~z, 0~9), and 5~14 characters"
       }
     },
     "IotHubSku": {
@@ -80,18 +80,18 @@
     "storage": {
       "apiVersion": "2021-02-01",
       "sku": "Standard_LRS",
-      "name": "[toLower(concat('innovatefpgastor', parameters('UniqueID')))]"
+      "name": "[toLower(concat('ifpgastor', parameters('UniqueID')))]"
     },
     "githubrepo": {
-      "webApp": "https://github.com/daisukeiot/InnovateFPGA2021-WebApp.git",
+      "webApp": "https://github.com/microsoft/InnovateFPGA2021-WebApp.git",
       "webAppBranch": "main",
-      "functions": "https://github.com/daisukeiot/InnovateFPGA2021-Functions.git",
+      "functions": "https://github.com/microsoft/InnovateFPGA2021-Functions.git",
       "functionsBranch": "main"
     },
     "deployment": {
       "apiVersion": "2021-04-01"
     },
-    "envTag": "v0.1"
+    "envTag": "v1.0"
   },
   "resources": [
     {
