@@ -10,7 +10,7 @@ You can deploy Azure IoT Edge module through various tools such as :
 - Azure CLI <https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-modules-cli?view=iotedge-2020-11>
 - Visual Studio Code <https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-modules-vscode?view=iotedge-2020-11>
 
-Deployment information, such as which IoT Edge module to deploy and parameters to pass, are done through a JSON file called `deployment manifest`.
+Deployment information, such as which IoT Edge module to deploy and parameters to pass, are done through a JSON file called **deployment manifest**.
 
 More information on Deployment Manifest : <https://docs.microsoft.com/en-us/azure/iot-edge/module-composition?view=iotedge-2020-11>
 
@@ -43,5 +43,4 @@ Now you can customize device application to receive data for your use cases.
 
 ## Next Steps
 
-- [Add IoT Plug and Play interfaces](./DE10-Nano-IoTEdge-Deploy.md)
 - [Back to README](../README.md)

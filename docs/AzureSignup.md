@@ -8,13 +8,13 @@ title : Azure Account Sign up instruction
 
 # Sign up Azure Subscription
 
-Creating an Azure free account is one way to access Azure services. When you start using Azure with a free account, you get $200 credit to spend in the first 30 days after you sign up. In addition, you get free monthly amounts of two groups of services: Popular services, which are free for 12 months, and 25+ other services that are free always. Free services are based on resource and region availability.
+Creating an Azure free account is one way to access Azure services. When you start using Azure with a free account, you get $200 credit to spend in the first 30-day after you sign up. In addition, you get free monthly amounts of two groups of services: Popular services, which are free for 12 months, and 25+ other services that are free always. Free services are based on resource and region availability.
 
 If you are a student, you may select Azure Student account, which has slightly different offering.
 
 ## Azure Services Pricing Model
 
-Each Azure service has different pricing model.  Many of them includes **Free** SKU.  For example Azure IoT Hub has F1 SKU which is free of charge.
+Each Azure service has different pricing model.  Many of them includes **Free** SKU.  For example, Azure IoT Hub has F1 SKU which is free of charge.
 
 ## Azure Free Account vs. Azure for Students
 
@@ -62,7 +62,7 @@ Detailed step by step instruction to sign up for Azure Free Account
 - Credit Card or Debit card
 
 > [!NOTE]  
-> Your credit card will NOT be charged, unless you decided to move to Pay-as-you-go subscription.
+> Your credit card will NOT be charged unless you decided to move to Pay-as-you-go subscription.
 
 ### Step by step instruction to sign up for Azure Free Account
 
@@ -78,7 +78,7 @@ Detailed step by step instruction to sign up for Azure Free Account
 
 1. Enter your email address to sign in to Microsoft Account
 
-    The email address can be your existing email address such as your work email, shool email, @outlook.com, or @gmail.com etc.
+    The email address can be your existing email address such as your work email, school email, @outlook.com, or @gmail.com etc.
 
     ![Free Account 03](../images/FreeAccount-03.png)
 
@@ -91,7 +91,7 @@ Detailed step by step instruction to sign up for Azure Free Account
 1. Enter Credit Card or Debit Card information  
 
     > [!NOTE]  
-    > Your card will not be charged, unless you decided to upgrade to Pay-As-You-Go subscription.
+    > Your card will not be charged unless you decided to upgrade to Pay-As-You-Go subscription.
 
     ![Free Account 05](../images/FreeAccount-05.png)
 

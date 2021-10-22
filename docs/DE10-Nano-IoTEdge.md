@@ -16,9 +16,13 @@ In order to run the reference application as Azure IoT Edge module, you must :
 1. Configure Azure IoT Edge Runtime with provisioning information
 1. Deploy the reference application as Azure IoT Edge module
 
-## Prepare DE10-Nano to run Moby container engine
+> [!IMPORTANT]  
+> If you are using Ubuntu 18.04 image from Terasic, you can skip step 1 and 2.  
+> Skip to [Step 3](#3-create-dps-enrollment)
 
-Prepare Ubuntu 18.04 to reference Microsoft pacakges with :
+## 1. Prepare DE10-Nano to run Moby container engine
+
+Prepare Ubuntu 18.04 to reference Microsoft packages with :
 
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list && \
@@ -34,7 +38,7 @@ sudo apt-get update && \
 sudo apt-get install -y moby-engine
 ```
 
-## Install Azure IoT Edge Runtime
+## 2. Install Azure IoT Edge Runtime
 
 Once container engine is installed and running, install Azure IoT Edge Runtime with :
 
@@ -54,13 +58,13 @@ sudo apt-get install -y ./aziot-edge.deb
 > iotedge 1.2.4
 > ```
 
-## Create DPS enrollment
+## 3. Create DPS enrollment
 
-Similar to [this step](PaaS-Provision.md#6-create-dps-enrollment), create a DPS individual enrollment with Azure IoT Edge capacity turned on :
+Similar to [this step](PaaS-Provision.md#8-create-dps-enrollment), create a DPS individual enrollment with Azure IoT Edge capacity turned on :
 
 ![IOTEDGE01](../images/IoTEdge-01.png)
 
-## Configure enrollment information
+## 4. Configure enrollment information
 
 Configure Azure IoT Edge runtime with DPS Enrollment Information by updating `/etc/aziot/config.toml` :
 
@@ -72,7 +76,7 @@ Configure Azure IoT Edge runtime with DPS Enrollment Information by updating `/e
 
 1. Open `/etc/aziot/config.toml` with your favorite text editor  
 
-    e.g.
+    Example :
 
     ```bash
     nano /etc/aziot/config.toml
@@ -137,9 +141,27 @@ Configure Azure IoT Edge runtime with DPS Enrollment Information by updating `/e
     > [!TIP]  
     > Use `Copy` button to copy ID Scope and Symmetric key
 
+    Example :
+
+    ```bash
+    ## DPS provisioning with symmetric key
+    [provisioning]
+    source = "dps"
+    global_endpoint = "https://global.azure-devices-provisioning.net/"
+    id_scope = "0ne003C47FC"
+    #
+    [provisioning.attestation]
+    method = "symmetric_key"
+    registration_id = "DE10-Nano-Edge"
+    #
+    symmetric_key = { value = "QjDIqHD0b6tp....."
+    # symmetric_key = { uri = "file:///var/secrets/device-id.key" }                $
+    # symmetric_key = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" $
+    ```
+
 1. Save the changes to `config.toml`  
 
-    e.g. with nano editor, press `CTRL+x` to save and exit.
+    E.g., with nano editor, press **`CTRL + x`** to save and exit.
 
 1. Apply the new configuration with :  
 
@@ -149,7 +171,7 @@ Configure Azure IoT Edge runtime with DPS Enrollment Information by updating `/e
 
     This command stops all related services and restart them with new settings.
 
-    Output Example :  
+    Output example :  
 
     ```bash
     root@de10nano:~# iotedge config apply

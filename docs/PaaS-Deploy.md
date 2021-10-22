@@ -31,10 +31,12 @@ With this sample solution, you can perform basic IoT operations:
 
 ## 1. Start deploying Azure IoT Services
 
-Click **Deploy to Azure** button below.  The button will take you to Azure Portal and loads [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+Click **Deploy to Azure** button below.  The button will take you to Azure Portal and loads [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).  
 
 > [!TIP]  
 > <https://portal.azure.com> is called **Azure Portal** which is a web-based, unified GUI tool where you can monitor and manage Azure services.
+>
+> ARM template is saved in **[deploy](../deploy/azuredeploy.json)** folder.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fterasic%2FInnovateFPGA2021%2Fmain%2Fdeploy%2Fazuredeploy.json)
 

@@ -48,4 +48,7 @@ Microsoft provides Platform as a Service (PaaS) as well as Software as a Service
 
 - InnovateFPGA 2021 Homepage : <https://innovatefpga.com>
 - Intro video : <https://youtu.be/OXPPFblUhtc>
-- Reference Device Application : <https://github.com/intel-iot-devkit/terasic-de10-nano-kit/tree/master/azure-de10nano-document/sensor-aggregation-reference-design-for-azure>
+- Source code
+  - Reference Device Application : <https://github.com/intel-iot-devkit/terasic-de10-nano-kit/tree/master/azure-de10nano-document/sensor-aggregation-reference-design-for-azure>
+  - Sample IoT Solution Web App : <https://github.com/microsoft/InnovateFPGA2021-WebApp>
+  - Sample IoT Solution Functions App : <https://github.com/microsoft/InnovateFPGA2021-Functions>
