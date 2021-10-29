@@ -21,7 +21,7 @@ In this document, we will cover some of basic concepts, data flow, and data proc
 
 Typical IoT Solutions have 4 building blocks :
 
-![Solution Pattern](/images/IoTSolutionPattern.png)
+![Solution Pattern](../images/IoTSolutionPattern.png)
 
 - Things  
 
@@ -88,7 +88,7 @@ The sample IoT solution is consist of multiple technology domains.
 
   The sample solution simply displays data from the device in real-time.  To keep the solution simple (and be cost effective), it does not store data.
 
-  ![Solution Diagram](/images/solution-diagram.png)
+  ![Solution Diagram](../images/solution-diagram.png)
 
 ## IoT Device and Data domain
 
@@ -120,11 +120,11 @@ In the sample solution portal, you can manage enrollment with :
 
 1. Click `Device Management` menu, then click `Device Provisioning (DPS)`  
 
-    ![App 01](/images/App-01.png)
+    ![App 01](../images/App-01.png)
 
 1. Click `Add New Enrollment`
 
-    ![App 02](/images/App-02.png)
+    ![App 02](../images/App-02.png)
 
 1. Enter `Enrollment Name`
 1. Select Individual or Group enrollment  
@@ -138,15 +138,15 @@ In Azure Portal, you can manage enrollments with :
 1. Navigate to <https://portal.azure.com> and sign in with your Microsoft account.
 1. Select `Resource groups` from the menu, then select your resource group  
 
-    ![Portal 01](/images/Portal-01.png)
+    ![Portal 01](../images/Portal-01.png)
 
 1. Select `Device Provisioning Service` instance from the list  
 
-    ![Portal 02](/images/Portal-02.png)
+    ![Portal 02](../images/Portal-02.png)
 
 1. Select `Manage Enrollments`  
 
-    ![Portal 03](/images/Portal-03.png)
+    ![Portal 03](../images/Portal-03.png)
 
 Learn more about managing enrollments : <https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments>
 
@@ -261,7 +261,7 @@ Using IoT Hub's message routing, you can route any incoming messages to other se
 > The sample solution uses Free SKU of IoT Hub to keep the cost down.  Free SKU supports one additional endpoint and 5 routings.
 > <https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling>
 
-![IoTHub-EventHub](/images/IoTHub-EventHub.png)
+![IoTHub-EventHub](../images/IoTHub-EventHub.png)
 
 If you would like to add another subscriber to consume telemetry, you can create a separate Custom Endpoint or subscribe from `DeviceTelemetryToEventHub-DP` endpoint.
 
@@ -274,7 +274,7 @@ If you would like to add another subscriber to consume telemetry, you can create
 
 The sample solution implements Azure Event Grid to distribute events.  Similar to Telemetry, events are distributed in PUB-SUB fashion, while Event Grid is being a broker.  The publisher is IoT Hub, and the subscriber is WebApp.
 
-![IoTHub-EventGrid](/images/IoTHub-EventGrid.png)
+![IoTHub-EventGrid](../images/IoTHub-EventGrid.png)
 
 If you are interested in listening to events from IoT Hub and/or DE10-Nano, you can add a new `Event Subscription` to IoT Hub.
 
@@ -284,7 +284,7 @@ Device Events are simply sent to Web Application through Event Grid.  Device Tel
 
 For example, if you connect GPS to DE10-Nano and send location data to track movement of animals or shipment, you can update browser's view without having users to press refresh button by sending GPS telemetry data to WebApp in SignalR messages.
 
-![SignalR](/images/SignalR.png)
+![SignalR](../images/SignalR.png)
 
 ## Actions
 

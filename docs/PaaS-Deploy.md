@@ -31,63 +31,67 @@ With this sample solution, you can perform basic IoT operations:
 
 ## 1. Start deploying Azure IoT Services
 
-> [!NOTE]  
-> TBD Update link to ARM template after converting the repo to public.
-
-Click **Deploy to Azure** button below.  The button will take you to Azure Portal and loads [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+Click **Deploy to Azure** button below.  The button will take you to Azure Portal and loads [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).  
 
 > [!TIP]  
 > <https://portal.azure.com> is called **Azure Portal** which is a web-based, unified GUI tool where you can monitor and manage Azure services.
+>
+> ARM template is saved in **[deploy](../deploy/azuredeploy.json)** folder.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdaisukeiot%2FInnovateFPGA2021%2Fmain%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fterasic%2FInnovateFPGA2021%2Fmain%2Fdeploy%2Fazuredeploy.json)
 
 > [!TIP]  
 > Right click the button below and select **Open link in new tab** or **Open link in new window**
 
 ## 2. Basic settings for your solution
 
-Each solution requires a few unique settings and parameters.  Please provide information to customize your solution.
+Each deployment requires unique settings and parameters.  Please provide information to personalize your deployment.
 
 | Setting        | Description                                                                                                                                                                                                                                           | Example                        |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | Subscription   | Select your Azure subscription from the list.  If you do not have one, please sign up [free subscription](https://azure.microsoft.com/free/).                                                                                                         |                                |
 | Resource Group | Resource group is a way to organize resources (services).  To learn more visit [here](/azure/azure-resource-manager/management/manage-resource-groups-portal).  Create new resource group by clicking `Create new`.                                   | MyInnovateFPGAGroup            |
-| Region         | Select nearest location.  To learn more, visit [here](https://azure.microsoft.com/global-infrastructure/geographies/#overview).                                                                                                                       | West US 2 for Pacific Timezone |
-| Unique ID      | Default names given to all resources are InnovateFPGA-&lt;ServiceName&gt;-&lt;Your Unique ID&gt;.  (E.g. InnovateFPGA-IoTHub-&lt;Unique Id&gt;)  Since some services require globally unique names so please make it unique, or accept random string. | YourName01                     |
+| Region         | Select nearest location.  To learn more, visit [here](https://azure.microsoft.com/global-infrastructure/geographies/#overview).                                                                                                                       | West US 2 for Pacific time zone |
+| Unique ID      | Default names given to all resources are InnovateFPGA-&lt;ServiceName&gt;-&lt;Your Unique ID&gt;.  (E.g., InnovateFPGA-IoTHub-&lt;Unique Id&gt;)  Since some services require globally unique names, please make it unique by providing unique string. | YourName01                     |
 | IoT Hub Sku    | If you plan to send more than 8000 messages per day, please select S1.  S1 will cost you $25/month.  Please see [Azure IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/) for more details.                                  |                                |
 
-![PaaS02](/images/PaaS-02.png)
+![PaaS02](../images/PaaS-02.png)
 
 ## 3. Review and start deployment
 
-Click `Review + create` button for Azure Portal to validate the settings.  Start deployment by clicking `Create` button.
+Click `Review + create` button for Azure Portal to validate and confirm the settings.  Start deployment by clicking `Create` button.
 
-![PaaS03](/images/PaaS-03.png)
+![PaaS03](../images/PaaS-03.png)
 
 > [!TIP]  
 > You can see the progress of deployment as well as results of operations.
 >
-> ![PaaS04](/images/PaaS-04.png)
+> ![PaaS04](../images/PaaS-04.png)
 
 ## 4. Confirm successful deployment
 
-Deployment should finish in about 10 minutes.  Please wait for the deployment to complete.
+Deployment should finish in about 7 ~ 10 minutes.  Please wait for the deployment to complete.
 Once the deployment is completed, navigate to the sample Web Application to confirm your solution instance is up and running.
 
-![PaaS05](/images/PaaS-05.png)
+![PaaS05](../images/PaaS-05.png)
 
 1. Click `Outputs` in the left pane, then copy Web app's URL by clicking the blue button on the right.
 
-    ![PaaS06](/images/PaaS-06.png)
+    ![PaaS06](../images/PaaS-06.png)
 
 1. Open a new browser tab to access your solution
 
-    ![PaaS07](/images/PaaS-07.png)
+    ![PaaS07](../images/PaaS-07.png)
 
 > [!TIP]  
 > You can find Web App's URL in `App Service` instance in Azure Portal.
 >
-> ![PaaS08](/images/PaaS-08.png)
+> ![PaaS08](../images/PaaS-08.png)
+
+## Completed
+
+Congratulations!  You deployed a sample IoT solution in your Azure subscription.  You can connect DE10-Nano to the solution to start seeing data!
+Let's set up and connect DE10-Nano!
 
 ## Next Step
 

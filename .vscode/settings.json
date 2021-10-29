@@ -1,6 +1,31 @@
 {
     "cSpell.words": [
+        "altvipfb",
+        "aziot",
+        "azuredeploy",
+        "balena",
+        "certd",
+        "dtbo",
+        "fpgaoverlay",
+        "identityd",
         "IOTC",
-        "IOTHUB"
-    ]
+        "IOTHUB",
+        "keyd",
+        "mgmt",
+        "Moby",
+        "pkcs",
+        "pythonapp",
+        "rootfs",
+        "socfpga",
+        "stty",
+        "Terasic",
+        "UART"
+    ],
+    "markdownlint.config": {
+        "MD028": false,
+        "MD025": {
+            "front_matter_title": ""
+        }
+    },
+    "cmake.configureOnOpen": false
 }

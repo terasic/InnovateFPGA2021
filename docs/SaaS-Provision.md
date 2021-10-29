@@ -24,7 +24,7 @@ Your IoT Central application is pre-configured for DE10-Nano, using IoT Plug and
 
     Click `Devices`, then click `FPGA Cloud Connectivity Kit`
 
-    ![IOTC01](/images/IoTC-01.png)
+    ![IOTC01](../images/IoTC-01.png)
 
 1. Create a new device
 
@@ -38,22 +38,22 @@ Your IoT Central application is pre-configured for DE10-Nano, using IoT Plug and
     | Device Template      | Select FPGA Cloud Connectivity Kit   |           |
     | Simulate this device? | If you do not have a device, IoT Central can simulate device telemetry etc.  Select `No` since you are connecting real device. ||
 
-    ![IOTC02](/images/IoTC-02.png)
+    ![IOTC02](../images/IoTC-02.png)
 
 1. Confirm you have a new device for your DE10-Nano  
   
-    ![IOTC03](/images/IoTC-03.png)
+    ![IOTC03](../images/IoTC-03.png)
   
     > [!NOTE]  
     > Device is in `Registered` state.
 
 1. Click on Device Name to open device's detail page, then click `Connect`  
 
-    ![IOTC04](/images/IoTC-04.png)
+    ![IOTC04](../images/IoTC-04.png)
 
 1. You can see information to provision your DE10-Nano to IoT Central application  
 
-    ![IOTC05](/images/IoTC-05.png)
+    ![IOTC05](../images/IoTC-05.png)
 
 ## 2. Configure your DE10-Nano with DPS provisioning information
 
@@ -88,11 +88,11 @@ Execute main.py in DE10-Nano with :
 
 Once your DE10-Nano is provisioned and connected, you should see device status change to `Provisioned` status.  You can also see telemetry from your DE10-Nano.
 
-![IOTC06](/images/IoTC-06.png)
+![IOTC06](../images/IoTC-06.png)
 
 Wait for a minute or so, you should start seeing telemetry data in `Device Data` page.
 
-![IOTC07](/images/IoTC-07.png)
+![IOTC07](../images/IoTC-07.png)
 
 ## Completed
 

@@ -239,7 +239,83 @@ sudo dd bs=1M if=/dev/sdb of=/home/Ubuntu18_1.img
     ```bash
     curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.3/aziot-identity-service_1.2.2-1_ubuntu18.04_armhf.deb -o aziot-identity-service.deb && \
     curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.3/aziot-edge_1.2.3-1_ubuntu18.04_armhf.deb -o aziot-edge.deb && \
-    sudo apt-get install -y ./aziot-identity-service.deb ./aziot-edge.deb
+    apt-get install -y ./aziot-identity-service.deb ./aziot-edge.deb
+    ```
+
+Output Example :
+
+```bash
+root@de10nano:~/tmp# cd ~/tmp && \
+> curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.4/aziot-identity-service_1.2.3-1_ubuntu18.04_armhf.deb -o aziot-identity-service.deb && \
+> apt-get install -y ./aziot-identity-service.deb && \
+> curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.4/aziot-edge_1.2.4-1_ubuntu18.04_armhf.deb -o aziot-edge.deb && \
+> apt-get install -y ./aziot-edge.deb
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Note, selecting 'aziot-identity-service' instead of './aziot-identity-service.deb'
+The following NEW packages will be installed:
+  aziot-identity-service
+0 upgraded, 1 newly installed, 0 to remove and 2 not upgraded.
+Need to get 0 B/3,053 kB of archives.
+After this operation, 15.3 MB of additional disk space will be used.
+Get:1 /root/tmp/aziot-identity-service.deb aziot-identity-service armhf 1.2.3-1 [3,053 kB]
+Selecting previously unselected package aziot-identity-service.
+(Reading database ... 73335 files and directories currently installed.)
+Preparing to unpack .../tmp/aziot-identity-service.deb ...
+Unpacking aziot-identity-service (1.2.3-1) ...
+Setting up aziot-identity-service (1.2.3-1) ...
+Created symlink /etc/systemd/system/sockets.target.wants/aziot-certd.socket → /lib/systemd/system/aziot-certd.socket.
+Created symlink /etc/systemd/system/sockets.target.wants/aziot-identityd.socket → /lib/systemd/system/aziot-identityd.socket.
+Created symlink /etc/systemd/system/sockets.target.wants/aziot-keyd.socket → /lib/systemd/system/aziot-keyd.socket.
+Created symlink /etc/systemd/system/sockets.target.wants/aziot-tpmd.socket → /lib/systemd/system/aziot-tpmd.socket.
+   :
+   :
+Unpacking aziot-edge (1.2.4-1) ...
+Setting up aziot-edge (1.2.4-1) ...
+===============================================================================
+
+                              Azure IoT Edge
+
+  IMPORTANT: Please configure the device with provisioning information.
+
+  Please create a new system configuration.
+
+  You can quickly configure the device for manual provisioning with
+   a connection string using:
+
+    sudo iotedge config mp --connection-string '...'
+
+  For other provisioning options, copy the template file 
+  at /etc/aziot/config.toml.edge.template to /etc/aziot/config.toml,
+  update it with your device information, then apply the configuration to
+  the IoT Edge services with:
+
+    sudo iotedge config apply
+
+===============================================================================
+Created symlink /etc/systemd/system/sockets.target.wants/aziot-edged.mgmt.socket → /lib/systemd/system/aziot-edged.mgmt.socket.
+Created symlink /etc/systemd/system/multi-user.target.wants/aziot-edged.service → /lib/systemd/system/aziot-edged.service.
+Created symlink /etc/systemd/system/sockets.target.wants/aziot-edged.workload.socket → /lib/systemd/system/aziot-edged.workload.socket.
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+
+```
+
+1. Confirm successful installation with `iotedge system status` command
+
+    Service statuses should say `Ready`
+
+    ```bash
+    root@de10nano:~/tmp# iotedge system status
+    System services:
+    aziot-edged             Ready
+    aziot-identityd         Ready
+    aziot-keyd              Ready
+    aziot-certd             Ready
+    aziot-tpmd              Ready
+
+    Use 'iotedge system logs' to check for non-fatal errors.
+    Use 'iotedge check' to diagnose connectivity and configuration issues.
     ```
 
 1. Copy and open IoT Edge Runtime configuration file with your favorite editor  
@@ -261,13 +337,13 @@ sudo dd bs=1M if=/dev/sdb of=/home/Ubuntu18_1.img
     | Enrollment Type | Type of enrollment.  Select individual.                                                               | Individual.    |
     | Capacity        | Creating enrollment for IoT Edge device.  Turn on IoT Edge.                                           |                |
 
-    ![App 03](/images/App-03.png)
+    ![App 03](../images/App-03.png)
 
 1. Click `Create` to create a new individual enrollment.
 
     If a new enrollment is successfully created, you should see the new enrollment in the top half of the dialog.
 
-    ![App 04](/images/App-04.png)
+    ![App 04](../images/App-04.png)
 
 1. Navigate to `DPS provisioning with symmetric key` section and uncomment
 
@@ -346,7 +422,7 @@ Follow the steps described [here](https://docs.microsoft.com/azure/iot-edge/how-
 
 The sample solution dashboard should show `DeviceCreated` device event from IoT Hub.
 
-![App 05](/images/App-05.png)
+![App 05](../images/App-05.png)
 
 > [!TIP]  
 > It can take several minutes to initialize Azure IoT Edge, depending on your network speed.
@@ -361,7 +437,7 @@ edgeAgent        running          Up 6 minutes     mcr.microsoft.com/azureiotedg
 
 The dashboard should show `DeviceConnected` device event.
 
-![App 06](/images/App-06.png)
+![App 06](../images/App-06.png)
 
 > [!CAUTION]  
 > The reference application sends 2 telemetry messages every 10 seconds.   You will hit daily quota of 8000 messages per day in 11 hours.  
