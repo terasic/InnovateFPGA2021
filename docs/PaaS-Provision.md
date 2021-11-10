@@ -33,6 +33,13 @@ This document describes how to run Python application to provision to the sample
 
    <http://download.terasic.com/downloads/cd-rom/de10-nano/AzureImage/DE10-Nano-Cloud-Native_18.04.zip>
 
+    > [!WARNING]
+    > We have a report with some SD cards you may see SD card access error in console.  
+    > ![SDCardError](../images/SDCardError.png)
+    > We are investigating this issue.
+    > In the meantime, please try with a bigger SD card (16GB or bigger).  We have only seen this error with some 8GB SD cards.
+    > If you experience this issue, please report to your Innovate FPGA contact.
+  
 1. Flash SD card using Disk Image application such as [balenaEtcher](https://www.balena.io/etcher/) or [Rufus](https://rufus.ie/)
 
 > [!NOTE]  
