@@ -64,7 +64,7 @@
     "eventGrid": {
       "apiVersion": "2020-04-01-preview",
       "iothubSystemTopic": "IoTHubSystemTopic",
-      "name": "[concat('InnovateFPGA-SignalR-', parameters('UniqueID'))]"
+      "name": "[concat('InnovateFPGA-EventGrid-', parameters('UniqueID'))]"
     },
     "apps": {
       "apiVersion": "2021-01-15",
