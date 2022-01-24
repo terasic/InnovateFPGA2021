@@ -132,53 +132,18 @@ After the initial boot, it is recommended to :
 
 - Install your favorite tools such as text editor
 
-## 5. Disable overlay during boot
+## 5. Disable overlay and lightdm during boot
 
-Disable FPGA overlay during boot by commenting out following lines in `/overlay/fpgaoverlay.sh`
+Disable FPGA overlay and LightDM during boot with :
 
 > [!WARNING]  
 > The default overlay include frame buffer for HDMI output.  HDMI will not work after disabling the default overlay.  
 > Make sure you have UART or SSH connection to DE10-Nano from your development machine.
 
-E.g., with Nano editor :
-
 ```bash
-nano /overlay/fpgaoverlay.sh
+systemctl disable fpgaoverlay.service
+systemctl disable lightdm.service
 ```
-
-Locate following lines in fpgaoverlay.sh
-
-```bash
-echo "creating $overlay_dir"
-mkdir $overlay_dir
-
-echo "Doing Device Tree Overlay"
-echo overlay.dtbo > $overlay_dir/path
-
-echo "Successfully Device Tree Overlay Done"
-
-echo "Loading altvipfb"
-modprobe altvipfb
-echo "Successfully altvipfb is loaded"
-```
-
-Comment out following lines by adding **#** to beginning of each line.
-
-```bash
-#echo "creating $overlay_dir"
-#mkdir $overlay_dir
-
-#echo "Doing Device Tree Overlay"
-#echo overlay.dtbo > $overlay_dir/path
-
-#echo "Successfully Device Tree Overlay Done"
-
-#echo "Loading altvipfb"
-#modprobe altvipfb
-#echo "Successfully altvipfb is loaded"
-```
-
-Save the change and reboot DE10-Nano.
 
 > [!IMPORTANT]  
 > You must reboot DE10-Nano for this change to take effect.
@@ -336,7 +301,7 @@ These must be done before running the application.  Let's create a shell script 
 1. Set executable with :
 
     ```bash
-    chmod a+x run_pythonapp.sh
+    chmod a+x ./overlay/run_pythonapp.sh
     ```
 
 ## 10. Run reference device application
